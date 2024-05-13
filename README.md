@@ -1,14 +1,15 @@
-# Welcome to your CDK TypeScript project
+# aws-chatbot-cost-notification-slack
 
-This is a blank project for CDK development with TypeScript.
+This project is a AWS CDK application that sets up a system to send AWS cost notifications to a Slack channel via AWS Chatbot.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Structure
 
-## Useful commands
+The main logic of the application is implemented in the `AwsChatbotCostNotificationSlackStack` class in the `lib/aws-chatbot-cost-notification-slack-stack.ts`file. This class extends the `cdk.Stack` class and includes methods to create an AWS Budget, a Chatbot, and an SNS Topic.
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+## Deploy
+
+### Please create a Slack channel where you want to receive the notifications and install the AWS Chatbot App.
+
+```sh
+cdk deploy AwsChatbotCostNotificationSlackStack -c slackWorkspaceId=[your-slack-workspaceId] -c slackChannelId=[your-slack-channelId] --profile [your-profile-bame]
+```
